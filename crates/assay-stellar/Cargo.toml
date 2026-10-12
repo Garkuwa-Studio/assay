@@ -1,0 +1,19 @@
+[package]
+name = "assay-stellar"
+description = "Assay CLI: check reserve status and sign/post reserve reports on Stellar"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+readme = "../../README.md"
+keywords = ["stellar", "soroban", "proof-of-reserves", "rwa"]
+categories = ["command-line-utilities", "cryptography::cryptocurrencies"]
+
+[[bin]]
+name = "assay"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }

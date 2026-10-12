@@ -1,0 +1,12 @@
+target/
+node_modules/
+dist/
+coverage/
+.soroban/
+.stellar/
+*.wasm
+.env
+.env.*
+!.env.example
+.DS_Store
+test_snapshots/

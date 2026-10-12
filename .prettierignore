@@ -1,0 +1,6 @@
+target/
+dist/
+coverage/
+pnpm-lock.yaml
+*.md
+**/test_snapshots/
