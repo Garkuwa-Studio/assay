@@ -1,7 +1,7 @@
 # Assay
 
 **Open proof of reserves and circuit breakers for real-world assets and
-stablecoins on Stellar.** By [Garkuwa Labs](https://github.com/garkuwa-labs).
+stablecoins on Stellar.** By [Garkuwa Labs](https://github.com/Garkuwa-Studio).
 
 [Website]([URL]) · [Board]([URL]/board) ·
 [Architecture (PDF)]([URL]/assay-architecture.pdf) · [Docs]([URL]/docs) ·
@@ -9,8 +9,8 @@ stablecoins on Stellar.** By [Garkuwa Labs](https://github.com/garkuwa-labs).
 
 Stellar holds billions in tokenized real-world assets and stablecoins. Each
 one promises it is backed by real money, bonds or loans. Stellar's SEP-1
-standard even requires issuers to publish a link to their reserve proof —
-but nothing checks those links, tracks how old they are, or lets a smart
+standard gives issuers a field for a link to their reserve proof — but
+nothing checks those links, tracks how old they are, or lets a smart
 contract react when backing goes missing.
 
 Assay makes every reserve claim on Stellar checkable, by people and by

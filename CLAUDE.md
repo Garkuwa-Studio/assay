@@ -8,10 +8,10 @@ Contains: contracts/registry, contracts/guard, contracts/demo-pool (TESTNET
 DEMO ONLY), crates/assay-stellar (CLI `assay`), packages/sdk
 (@garkuwa/assay-sdk), scripts/, docs/.
 
-## Specs
+## Specs (private, in ../proposals/specs/)
 - 10-build-prompts.md — scaffold and post-award prompts.
 - 11-demo-sprint-prompts.md — D0–D5 (pre-submission).
-- docs/ARCHITECTURE.md (from 13-technical-architecture.md).
+- 13-technical-architecture.md → public copy in docs/ARCHITECTURE.md.
 - docs/SCF-SUBMISSION.md (after award) — acceptance criteria.
 
 ## Workflow (every task)
@@ -39,16 +39,24 @@ DEMO ONLY), crates/assay-stellar (CLI `assay`), packages/sdk
   `assay-cli` crate names (taken).
 - Release discipline: downstream repos use tagged releases only.
 
-## Facts (re-verify in D0; record results)
-- SEP-1 requires `attestation_of_reserve` (a URL) for anchored assets.
-- Contracts likely cannot read classic-asset total supply via the SAC →
-  supply witness design.
-- Oracles on Stellar: RedStone (SEP-40 prices, NAV), Chainlink (Data
-  Feeds/Streams, CCIP), Reflector. No PoR on Stellar found as of Oct 2026.
+## Facts (verified in D0, 2026-10-12 — see docs/STACK-STATUS.md)
+- SEP-1 v2.7.0: `attestation_of_reserve` is an OPTIONAL url field. Never
+  describe it as required, and never treat its absence as a fault.
+- Contracts cannot read classic-asset total supply via the SAC (no
+  total_supply in SAC or SEP-41) → supply witness design
+  (docs/D0-RECOMMENDATION.md).
+- Oracles on Stellar: RedStone (SEP-40 prices, live), Reflector, Band, DIA
+  (testnet), Pyth; Chainlink announced, Data Feeds live status unverified.
+  No proof of reserve on Stellar from any provider.
+- Blend v2: only pool-wide `set_status` is immediate; per-reserve disable
+  has a 1-week timelock.
 - Positioning: "Complement oracles, don't compete. Facts, not ratings."
 
-D0 results: protocol ____ · SAC supply readable? ____ · census: anchored
-assets ____ / with link ____ / link works ____ · "reserve-verified" means ____
+D0 results: protocol 29 (mainnet + testnet) · SAC supply readable? no ·
+census top-50: anchored 8 / with link 3 / link 2xx to automated request 0;
+RWA supplement: anchored 6 / with link 6 / 2xx 5; structured reports 0 ·
+"reserve-verified" means: not found (Stellar's Dune dashboard; question
+drafted for Dev Discord)
 
 ## Status checklist (human updates)
 Pre-submission

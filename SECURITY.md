@@ -6,7 +6,7 @@ protect funds.
 ## Reporting a vulnerability
 
 Report privately through GitHub's
-[private vulnerability reporting](https://github.com/garkuwa-labs/assay/security/advisories/new).
+[private vulnerability reporting](https://github.com/Garkuwa-Studio/assay/security/advisories/new).
 Do not open a public issue, PR or discussion.
 
 Please include affected component (registry, guard, CLI, SDK), version or

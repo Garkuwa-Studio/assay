@@ -6,7 +6,7 @@ members = ["contracts/*", "crates/*"]
 version = "0.0.0"
 edition = "2021"
 license = "Apache-2.0"
-repository = "https://github.com/garkuwa-labs/assay"
+repository = "https://github.com/Garkuwa-Studio/assay"
 authors = ["Garkuwa Labs"]
 rust-version = "1.91"
 
