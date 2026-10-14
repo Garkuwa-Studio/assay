@@ -11,7 +11,7 @@ authors = ["Garkuwa Labs"]
 rust-version = "1.91"
 
 [workspace.dependencies]
-soroban-sdk = "29.0.0"
+soroban-sdk = "29.0.1"
 
 [profile.release]
 opt-level = "z"

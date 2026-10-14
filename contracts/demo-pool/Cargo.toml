@@ -18,3 +18,5 @@ soroban-sdk = { workspace = true }
 
 [dev-dependencies]
 soroban-sdk = { workspace = true, features = ["testutils"] }
+assay-registry = { path = "../registry" }
+assay-guard = { path = "../guard" }

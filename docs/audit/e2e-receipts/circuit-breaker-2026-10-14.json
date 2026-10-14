@@ -1,0 +1,218 @@
+{
+  "kind": "circuit-breaker-demo",
+  "network": "testnet",
+  "date": "2026-10-14",
+  "contracts": {
+    "registry": {
+      "id": "CBMTQWT7DZOPHQ6WJZN4OYZIFJ6XLSZYRCYJZVOWMWHMQR4TZ3MCOG4U",
+      "wasm_sha256": "92f7663d28014231f5d04df01703512ce6d16d652144cffcd81a11bd6bfec865",
+      "url": "https://stellar.expert/explorer/testnet/contract/CBMTQWT7DZOPHQ6WJZN4OYZIFJ6XLSZYRCYJZVOWMWHMQR4TZ3MCOG4U"
+    },
+    "guard": {
+      "id": "CCVEIPYTY6RRVJZONFZL4WVGN66H5IU77H3HSSQJKH7I7WSDL6DIEKDV",
+      "wasm_sha256": "7b29fc4a099f8a02198597780cb3a635b4c910a122ce67aed93a127b000f27ed",
+      "url": "https://stellar.expert/explorer/testnet/contract/CCVEIPYTY6RRVJZONFZL4WVGN66H5IU77H3HSSQJKH7I7WSDL6DIEKDV"
+    },
+    "demo_pool": {
+      "id": "CCQP73IMYC67UUF7R4OIHMEWRZWMUZO2TQEKCTOFGYZ6NUFZT6JNKY33",
+      "wasm_sha256": "3b96ecb51fbc5e40fec8f3b3f5921c13404a121dc2ca969e0498cc61950f7fd3",
+      "url": "https://stellar.expert/explorer/testnet/contract/CCQP73IMYC67UUF7R4OIHMEWRZWMUZO2TQEKCTOFGYZ6NUFZT6JNKY33"
+    },
+    "ademo": {
+      "id": "CC22EDRUYLGMSF4YOP77GKP6O6SQQT6WY2VP6VHNHALTOBPGXNIKRWTB",
+      "url": "https://stellar.expert/explorer/testnet/contract/CC22EDRUYLGMSF4YOP77GKP6O6SQQT6WY2VP6VHNHALTOBPGXNIKRWTB"
+    },
+    "dusd": {
+      "id": "CDKWYXW5W5ZOK3FDZFHNGXHNOO6YISS7DBGCSDQTQINVMH7THUTDWDGL",
+      "url": "https://stellar.expert/explorer/testnet/contract/CDKWYXW5W5ZOK3FDZFHNGXHNOO6YISS7DBGCSDQTQINVMH7THUTDWDGL"
+    }
+  },
+  "roles": {
+    "admin": "GDG23ZJYA4DPRZIWFMEKNDCMFZ2NGT56CM63D4JHU57W4FSOEN4QAGWN",
+    "asset_admin": "GDTB33U75MGMILME2RWXBL5CUPZP4W43Y225OLWUOZ7D2YNSBQTUOPKE",
+    "attestor": "GBQK5IGFFJUEMJJ6G4ZRU2N4ZBUUEV2OFYUQSEXLOI5NMV6FHJ6F7ZPC",
+    "witness": "GAVPDR3LVSJLKAO75FOLTRGVNQAOHOHVZUDKUPOE5IVWU2XRB4WIZZPJ",
+    "borrower": "GCXGO67IDB2ODTYBFIXZJJM5EYQ2EN4JJSUAT5PMW2PNSEIBSXJ3PWRC"
+  },
+  "policy": {
+    "min_coverage_bps": 10000,
+    "max_age_secs": 90,
+    "min_attestors": 1,
+    "max_disagreement_bps": 500,
+    "max_supply_mismatch_bps": 50
+  },
+  "ltv_bps": 5000,
+  "steps": [
+    {
+      "part": "setup",
+      "step": "Deploy registry `CBMTQWT7DZOPHQ6WJZN4OYZIFJ6XLSZYRCYJZVOWMWHMQR4TZ3MCOG4U`",
+      "tx": ["c9ea09dd7c59dee639cf6931c389004e9e3736328b6e33e005f1c639d36cac46"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/c9ea09dd7c59dee639cf6931c389004e9e3736328b6e33e005f1c639d36cac46"
+      ]
+    },
+    {
+      "part": "setup",
+      "step": "Deploy guard `CCVEIPYTY6RRVJZONFZL4WVGN66H5IU77H3HSSQJKH7I7WSDL6DIEKDV`",
+      "tx": [
+        "178e373a112bc1f6ead6d7d75099b805779704779abf0b769526538d93313c5b",
+        "2e7b32225b520b5b2ab5d9574add96d94e14cf3510bae38abd44bdf3798aaf54"
+      ],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/178e373a112bc1f6ead6d7d75099b805779704779abf0b769526538d93313c5b",
+        "https://stellar.expert/explorer/testnet/tx/2e7b32225b520b5b2ab5d9574add96d94e14cf3510bae38abd44bdf3798aaf54"
+      ]
+    },
+    {
+      "part": "setup",
+      "step": "ADEMO token contract `CC22EDRUYLGMSF4YOP77GKP6O6SQQT6WY2VP6VHNHALTOBPGXNIKRWTB` (collateral)",
+      "tx": [],
+      "urls": []
+    },
+    {
+      "part": "setup",
+      "step": "DUSD token contract `CDKWYXW5W5ZOK3FDZFHNGXHNOO6YISS7DBGCSDQTQINVMH7THUTDWDGL` (demo stablecoin)",
+      "tx": ["49832143b79b78f1c941297e1ab1ead7e967c0eb09c5d126413141e07d66d645"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/49832143b79b78f1c941297e1ab1ead7e967c0eb09c5d126413141e07d66d645"
+      ]
+    },
+    {
+      "part": "setup",
+      "step": "Deploy demo pool `CCQP73IMYC67UUF7R4OIHMEWRZWMUZO2TQEKCTOFGYZ6NUFZT6JNKY33` (TESTNET DEMO ONLY)",
+      "tx": [
+        "39981565a1d6f851985ab593ed54179d627cd867e83c2953e3d1b4327eebb36c",
+        "93248a20b2be6fd4555252012a3c25ae8ff376759f3c1452d9cf574c8963c19d"
+      ],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/39981565a1d6f851985ab593ed54179d627cd867e83c2953e3d1b4327eebb36c",
+        "https://stellar.expert/explorer/testnet/tx/93248a20b2be6fd4555252012a3c25ae8ff376759f3c1452d9cf574c8963c19d"
+      ]
+    },
+    {
+      "part": "setup",
+      "step": "Registry: register ADEMO (unit USD)",
+      "tx": ["4688e7db7183b9dc2921f6797c825f8aa8495ee58c3f26717b578515a5dfbacd"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/4688e7db7183b9dc2921f6797c825f8aa8495ee58c3f26717b578515a5dfbacd"
+      ]
+    },
+    {
+      "part": "setup",
+      "step": "Registry: add attestor",
+      "tx": ["bd42236981ae9c6de60e291222783dfe45e17a027b105d1c07e56c670431d825"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/bd42236981ae9c6de60e291222783dfe45e17a027b105d1c07e56c670431d825"
+      ]
+    },
+    {
+      "part": "setup",
+      "step": "Registry: set supply witness",
+      "tx": ["36ae64a43d731066403068e4500ed77d147beb6e9e3bf19ed18143eb83c58c75"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/36ae64a43d731066403068e4500ed77d147beb6e9e3bf19ed18143eb83c58c75"
+      ]
+    },
+    {
+      "part": "setup",
+      "step": "Registry: witness posts supply 1,000,000 ADEMO",
+      "tx": ["14b903e28913397dbe655a70084915dcb50c28311f5086ea95b0847ca14d8111"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/14b903e28913397dbe655a70084915dcb50c28311f5086ea95b0847ca14d8111"
+      ]
+    },
+    {
+      "part": "setup",
+      "step": "Borrower trustline ADEMO",
+      "tx": ["f1387896adbfc3a662cdb9e92c7bd93e676b521ad494220480d5743f1661342a"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/f1387896adbfc3a662cdb9e92c7bd93e676b521ad494220480d5743f1661342a"
+      ]
+    },
+    {
+      "part": "setup",
+      "step": "Borrower trustline DUSD",
+      "tx": ["af6760b864706bb5332a0385e3feef24d2dc660caaa929bc72693d13ca1a5417"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/af6760b864706bb5332a0385e3feef24d2dc660caaa929bc72693d13ca1a5417"
+      ]
+    },
+    {
+      "part": "setup",
+      "step": "Issuer mints 1,000 ADEMO to the borrower",
+      "tx": ["33dec22683e2e59496c05298a4c80a5ee5198c75f9e743604fd661205b01fe8d"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/33dec22683e2e59496c05298a4c80a5ee5198c75f9e743604fd661205b01fe8d"
+      ]
+    },
+    {
+      "part": "setup",
+      "step": "Fund the pool with 100,000 DUSD",
+      "tx": ["016129ddad01416f01eea0fa4bc5e14d35ca2dcb2841e16a218316248a146557"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/016129ddad01416f01eea0fa4bc5e14d35ca2dcb2841e16a218316248a146557"
+      ]
+    },
+    {
+      "part": "setup",
+      "step": "Borrower deposits 1,000 ADEMO as collateral",
+      "tx": ["aa27d9618d48b3411d9980a0d52fe162a08a38248084a5a70a93d49a2188d2a9"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/aa27d9618d48b3411d9980a0d52fe162a08a38248084a5a70a93d49a2188d2a9"
+      ]
+    },
+    {
+      "part": "story",
+      "step": "1. Fresh report at 101%",
+      "tx": [
+        "bda39ffb24e5206e40d9714ade368b3527c94c323bc21143424632bfedcc8563",
+        "84fefd066c50f3627370fa75c8f48f58cdf19d9b6d5ce24e8623e02969ebdc71"
+      ],
+      "result": "borrow succeeded",
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/bda39ffb24e5206e40d9714ade368b3527c94c323bc21143424632bfedcc8563",
+        "https://stellar.expert/explorer/testnet/tx/84fefd066c50f3627370fa75c8f48f58cdf19d9b6d5ce24e8623e02969ebdc71"
+      ]
+    },
+    {
+      "part": "story",
+      "step": "2. Attestor posts 92%",
+      "tx": [
+        "773163e0283f3fd6cf5742daca99c6a6e257b6a782bade2e2f82234232171c7e",
+        "84d31e3575e94e9bad7d07d3462c2773f71c9d07e0cb7ec35b2cbf8621c09e3e"
+      ],
+      "result": "borrow rejected (UNDERCOVERED)",
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/773163e0283f3fd6cf5742daca99c6a6e257b6a782bade2e2f82234232171c7e",
+        "https://stellar.expert/explorer/testnet/tx/84d31e3575e94e9bad7d07d3462c2773f71c9d07e0cb7ec35b2cbf8621c09e3e"
+      ]
+    },
+    {
+      "part": "story",
+      "step": "3. Fresh report at 100.4%",
+      "tx": [
+        "2956390b147a4e953d565259f350fded678dee11c7f11b82da054dd1c9f1076d",
+        "683abc8d34f922ec60d22930638f252c151f1ff787a787b4bfb5d3f36d2a8b52"
+      ],
+      "result": "borrow succeeded",
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/2956390b147a4e953d565259f350fded678dee11c7f11b82da054dd1c9f1076d",
+        "https://stellar.expert/explorer/testnet/tx/683abc8d34f922ec60d22930638f252c151f1ff787a787b4bfb5d3f36d2a8b52"
+      ]
+    },
+    {
+      "part": "story",
+      "step": "4. No new report past the 90-second max age",
+      "tx": ["ec2c58476bb4bb7a12f977dd97b6143b5fe3400b42231bd1d0ad0254c3cbfa15"],
+      "result": "borrow rejected (STALE)",
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/ec2c58476bb4bb7a12f977dd97b6143b5fe3400b42231bd1d0ad0254c3cbfa15"
+      ]
+    }
+  ],
+  "final_position": {
+    "collateral": "10000000000",
+    "debt": "2000000000"
+  },
+  "matches_expected": true
+}

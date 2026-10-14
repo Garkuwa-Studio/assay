@@ -30,10 +30,21 @@ importers:
         specifier: 5.0.3
         version: 5.0.3(@types/node@24.19.2)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.28.2)(tsx@4.23.15))
 
-  packages/sdk: {}
+  packages/sdk:
+    dependencies:
+      '@stellar/stellar-sdk':
+        specifier: 17.2.1
+        version: 17.2.1
+    devDependencies:
+      tsx:
+        specifier: 4.23.15
+        version: 4.23.15
 
   scripts:
     dependencies:
+      '@garkuwa/assay-sdk':
+        specifier: workspace:*
+        version: link:../packages/sdk
       '@stellar/stellar-sdk':
         specifier: 17.2.1
         version: 17.2.1

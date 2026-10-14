@@ -20,7 +20,7 @@ primary source; do not build on it without checking again.
 
 | Package | Version | Released | Notes |
 |---|---|---|---|
-| soroban-sdk (Rust) | 29.0.0 | 2026-10-07 | MSRV 1.91; repo pins Rust 1.94.0 ([crates.io](https://crates.io/crates/soroban-sdk)) |
+| soroban-sdk (Rust) | 29.0.0 → **29.0.1** (2026-10-14) | 2026-10-07 / 2026-10-12 | MSRV 1.91; repo pins Rust 1.94.0 ([crates.io](https://crates.io/crates/soroban-sdk)). 29.0.0's env crates were yanked; see [audit/remediation-log.md](audit/remediation-log.md). |
 | stellar-cli | 28.1.0 | 2026-09-26 | MSRV 1.93 ([crates.io](https://crates.io/crates/stellar-cli)) |
 | @stellar/stellar-sdk (JS) | 17.2.1 | 2026-10-01 | ([npm](https://www.npmjs.com/package/@stellar/stellar-sdk)) |
 

@@ -10,11 +10,15 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run --passWithNoTests",
     "demo": "tsx src/demo.ts",
-    "demo:registry": "tsx src/demo-registry.ts"
+    "demo:registry": "tsx src/demo-registry.ts",
+    "demo:circuit-breaker": "tsx src/demo-circuit-breaker.ts",
+    "sign-report": "tsx src/sign-report.ts",
+    "check-links": "tsx src/check-links.ts"
   },
   "dependencies": {
     "@stellar/stellar-sdk": "17.2.1",
-    "smol-toml": "1.9.1"
+    "smol-toml": "1.9.1",
+    "@garkuwa/assay-sdk": "workspace:*"
   },
   "devDependencies": {
     "tsx": "4.23.15"

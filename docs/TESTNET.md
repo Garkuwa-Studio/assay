@@ -6,6 +6,17 @@ before it was listed. Never list a hash that does not resolve.
 
 All figures are **demo values** on **testnet**, not a real asset's reserves.
 
+## Guard and circuit breaker (demo sprint D4), 2026-10-14
+
+A fresh registry, Assay Guard and the TESTNET DEMO ONLY pool, with every
+transaction: [DEMO-RUN.md](DEMO-RUN.md).
+
+| | |
+|---|---|
+| Registry | [`CBMTQWT7DZOPHQ6WJZN4OYZIFJ6XLSZYRCYJZVOWMWHMQR4TZ3MCOG4U`](https://stellar.expert/explorer/testnet/contract/CBMTQWT7DZOPHQ6WJZN4OYZIFJ6XLSZYRCYJZVOWMWHMQR4TZ3MCOG4U) |
+| Assay Guard | [`CCVEIPYTY6RRVJZONFZL4WVGN66H5IU77H3HSSQJKH7I7WSDL6DIEKDV`](https://stellar.expert/explorer/testnet/contract/CCVEIPYTY6RRVJZONFZL4WVGN66H5IU77H3HSSQJKH7I7WSDL6DIEKDV) |
+| Demo pool (TESTNET DEMO ONLY) | [`CCQP73IMYC67UUF7R4OIHMEWRZWMUZO2TQEKCTOFGYZ6NUFZT6JNKY33`](https://stellar.expert/explorer/testnet/contract/CCQP73IMYC67UUF7R4OIHMEWRZWMUZO2TQEKCTOFGYZ6NUFZT6JNKY33) |
+
 ## Registry v0 (demo sprint D3), 2026-10-13
 
 Protocol 29, soroban-sdk 29.0.0, stellar-cli 28.1.0.

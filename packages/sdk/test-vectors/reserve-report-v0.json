@@ -1,0 +1,43 @@
+{
+  "note": "TEST VECTORS ONLY. The key comes from a published seed; never use it for real reports.",
+  "scheme": "payload = JCS(report without signature); signature = base64(SEP-53 Ed25519)",
+  "seed_hex": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+  "public_key": "GC6HZPFVMNRXL6Q5QJBU2RTHETMSG57VHOMANFO5JHJG2DHBEIC2KTOS",
+  "signed_report": {
+    "sep": "reserve-report-v0",
+    "asset": "DEMO:GBQK5IGFFJUEMJJ6G4ZRU2N4ZBUUEV2OFYUQSEXLOI5NMV6FHJ6F7ZPC",
+    "as_of": "2026-09-30T23:59:59Z",
+    "ledger": 5181119,
+    "reserves": [
+      {
+        "type": "cash",
+        "amount": "600000.00",
+        "unit": "USD"
+      },
+      {
+        "type": "government_bond",
+        "amount": "410000.00",
+        "unit": "USD"
+      }
+    ],
+    "liabilities": {
+      "supply": "1000000.00",
+      "unit": "DEMO"
+    },
+    "attestor": {
+      "name": "Example Attestor (test vector)",
+      "role": "auditor",
+      "stellar_key": "GC6HZPFVMNRXL6Q5QJBU2RTHETMSG57VHOMANFO5JHJG2DHBEIC2KTOS"
+    },
+    "evidence": [
+      {
+        "uri": "https://example.org/reserves-2026-09.pdf",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    ],
+    "signature": "EkxLsJgNs1QiUeq7N3B81BxpfFCSN7/fFQOGun25h9RTHzGxPiQ6M9lo/RXn8zHyMRA5aLeG1OQV70lAhFoIDw=="
+  },
+  "canonical_payload": "{\"as_of\":\"2026-09-30T23:59:59Z\",\"asset\":\"DEMO:GBQK5IGFFJUEMJJ6G4ZRU2N4ZBUUEV2OFYUQSEXLOI5NMV6FHJ6F7ZPC\",\"attestor\":{\"name\":\"Example Attestor (test vector)\",\"role\":\"auditor\",\"stellar_key\":\"GC6HZPFVMNRXL6Q5QJBU2RTHETMSG57VHOMANFO5JHJG2DHBEIC2KTOS\"},\"evidence\":[{\"sha256\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"uri\":\"https://example.org/reserves-2026-09.pdf\"}],\"ledger\":5181119,\"liabilities\":{\"supply\":\"1000000.00\",\"unit\":\"DEMO\"},\"reserves\":[{\"amount\":\"600000.00\",\"type\":\"cash\",\"unit\":\"USD\"},{\"amount\":\"410000.00\",\"type\":\"government_bond\",\"unit\":\"USD\"}],\"sep\":\"reserve-report-v0\"}",
+  "payload_sha256": "b60476e1636c0a2cb93cb66c6ee4ee47216cc4a8707ea5cef45291023198f8ed",
+  "sep53_message_hash": "a5444f23c260f57a2202488ca8a7bb31f34f016a8444ba603411478334002cdc"
+}
