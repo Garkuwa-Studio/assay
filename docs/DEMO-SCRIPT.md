@@ -6,12 +6,10 @@ grant funds (30 s). Every figure below has a source; say it as written.
 
 **Before recording**
 
-- `BOARD` = the board's address. **TODO:** set once the domain is live on
-  Cloudflare.
 - Open these tabs in order:
-  1. `BOARD/board/`
-  2. `BOARD/board/CETES-GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC/`
-  3. `BOARD/board/method/`
+  1. https://assay.wtf/board/
+  2. https://assay.wtf/board/CETES-GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC/
+  3. https://assay.wtf/board/method/
   4. [DEMO-RUN.md](DEMO-RUN.md) on GitHub
   5. Step 2's borrow: https://stellar.expert/explorer/testnet/tx/84d31e3575e94e9bad7d07d3462c2773f71c9d07e0cb7ec35b2cbf8621c09e3e
   6. Step 4's borrow: https://stellar.expert/explorer/testnet/tx/ec2c58476bb4bb7a12f977dd97b6143b5fe3400b42231bd1d0ad0254c3cbfa15

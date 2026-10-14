@@ -3,9 +3,9 @@
 **Open proof of reserves and circuit breakers for real-world assets and
 stablecoins on Stellar.** By [Garkuwa Labs](https://github.com/Garkuwa-Studio).
 
-Board: **TODO** (address pending, domain moving to Cloudflare) ·
-[Architecture](docs/ARCHITECTURE.md) · [Docs](docs/) ·
-[Testnet demo](docs/DEMO-RUN.md) · Demo video: **TODO** (not recorded yet)
+Board: [assay.wtf](https://assay.wtf/) · Docs: [docs.assay.wtf](https://docs.assay.wtf/) ·
+[Architecture](docs/ARCHITECTURE.md) ·
+[Testnet demo](docs/DEMO-RUN.md) · Demo video: **TODO** (recorded; link after upload)
 
 Stellar holds billions in tokenized real-world assets and stablecoins. Each
 one promises it is backed by real money, bonds or loans. Stellar's SEP-1
@@ -76,7 +76,7 @@ demo pool [`CCQP73IM…`](https://stellar.expert/explorer/testnet/contract/CCQP7
 
 Reproduce both runs: `make e2e` (testnet only; deploys fresh contracts).
 
-Board on real mainnet data: **TODO** (address pending) · Census method:
+Board on real mainnet data: [assay.wtf/board](https://assay.wtf/board/) · Census method:
 [docs/CENSUS-v0.md](docs/CENSUS-v0.md)
 
 ## Quickstart
@@ -110,7 +110,8 @@ assay/
 ```
 
 Related repositories: [assay-indexer](https://github.com/Garkuwa-Studio/assay-indexer) ·
-[assay-board](https://github.com/Garkuwa-Studio/assay-board)
+[assay-board](https://github.com/Garkuwa-Studio/assay-board) ·
+[assay-docs](https://github.com/Garkuwa-Studio/assay-docs) (the docs site)
 
 ## Prior art
 

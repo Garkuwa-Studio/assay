@@ -232,7 +232,7 @@ sequenceDiagram
     A->>CLI: assay report sign report.json
     CLI->>REG: post_report(asset, report, signature)
     REG->>REG: verify attestor registered + signature
-    REG-->>A: stored; status recomputed
+    REG-->>A: stored, status recomputed
 ```
 
 ### 5.3 Circuit breaker trips
@@ -246,7 +246,7 @@ sequenceDiagram
     P->>G: is_healthy(asset, policy)
     G->>REG: status(asset)
     REG-->>G: coverage 92%, age 41 days
-    G-->>P: false, "coverage below 100%; report older than 35 days"
+    G-->>P: false, "coverage below 100%, report older than 35 days"
     P-->>U: rejected with that reason
 ```
 
