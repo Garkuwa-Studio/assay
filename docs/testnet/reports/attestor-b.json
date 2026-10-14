@@ -1,0 +1,24 @@
+{
+  "sep": "reserve-report-v0",
+  "note": "TESTNET DEMO. Figures are illustrative, not a real asset's reserves.",
+  "asset": "ADEMO:GDTB33U75MGMILME2RWXBL5CUPZP4W43Y225OLWUOZ7D2YNSBQTUOPKE",
+  "as_of": "2026-10-13T22:05:37.000Z",
+  "ledger": 5181121,
+  "reserves": [
+    {
+      "type": "cash",
+      "amount": "995000.00",
+      "unit": "USD"
+    }
+  ],
+  "liabilities": {
+    "supply": "1000000.00",
+    "unit": "ADEMO"
+  },
+  "attestor": {
+    "name": "Demo attestor B",
+    "stellar_key": "GAXIC2DSICRV5WBIY24B6TBOOP6JXN3ZWOT5QQ2CIWQQCVVH7ADL6EA6",
+    "role": "auditor"
+  },
+  "evidence": []
+}

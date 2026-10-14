@@ -50,9 +50,9 @@ Full design: [Technical architecture]([URL]/docs/architecture).
 
 | Step | Evidence |
 |---|---|
-| Registry deployed | [contract ID] |
-| Asset registered, two attestors added | [tx] |
-| Supply witness posted | [tx] |
+| Registry deployed | [`CBUEGKQJ…`](https://stellar.expert/explorer/testnet/contract/CBUEGKQJNSJI2FXEIEK6B3RK52MZLNZECDEQPOFER32Z5UCSMCSJRRRF) ([all D3 transactions](docs/TESTNET.md)) |
+| Asset registered, two attestors added | [`40b73719…`](https://stellar.expert/explorer/testnet/tx/40b73719f45e96319e265bc8647f55dbe49ff6036f3ace017fdca302ed371b5b), [`e5f2c736…`](https://stellar.expert/explorer/testnet/tx/e5f2c73639c3bae007e2555a8f787cf441c5be09feffe444608683adea1ea1a2), [`53530b26…`](https://stellar.expert/explorer/testnet/tx/53530b26a33e9c57aea427469a4d9de24d2ec63dc55967ab0ad394775172ebda) |
+| Supply witness posted | [`be6b3d5e…`](https://stellar.expert/explorer/testnet/tx/be6b3d5e36e8cf1709ee4e335a27a183f4683a560442d94bf4bd05134a3327da) |
 | Report at 101% posted → status healthy | [tx] |
 | Borrow on demo pool — succeeded | [tx] |
 | Report at 92% posted → borrow rejected (UNDERCOVERED) | [tx] |

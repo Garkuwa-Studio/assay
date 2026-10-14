@@ -9,7 +9,8 @@
     "build": "tsc --noEmit",
     "typecheck": "tsc --noEmit",
     "test": "vitest run --passWithNoTests",
-    "demo": "tsx src/demo.ts"
+    "demo": "tsx src/demo.ts",
+    "demo:registry": "tsx src/demo-registry.ts"
   },
   "dependencies": {
     "@stellar/stellar-sdk": "17.2.1",

@@ -1,0 +1,101 @@
+{
+  "kind": "registry-demo",
+  "network": "testnet",
+  "date": "2026-10-13",
+  "registry": {
+    "contract": "CBUEGKQJNSJI2FXEIEK6B3RK52MZLNZECDEQPOFER32Z5UCSMCSJRRRF",
+    "wasm_sha256": "92f7663d28014231f5d04df01703512ce6d16d652144cffcd81a11bd6bfec865",
+    "url": "https://stellar.expert/explorer/testnet/contract/CBUEGKQJNSJI2FXEIEK6B3RK52MZLNZECDEQPOFER32Z5UCSMCSJRRRF"
+  },
+  "asset": {
+    "code": "ADEMO",
+    "issuer": "GDTB33U75MGMILME2RWXBL5CUPZP4W43Y225OLWUOZ7D2YNSBQTUOPKE",
+    "contract": "CC22EDRUYLGMSF4YOP77GKP6O6SQQT6WY2VP6VHNHALTOBPGXNIKRWTB"
+  },
+  "roles": {
+    "admin": "GDG23ZJYA4DPRZIWFMEKNDCMFZ2NGT56CM63D4JHU57W4FSOEN4QAGWN",
+    "asset_admin": "GDTB33U75MGMILME2RWXBL5CUPZP4W43Y225OLWUOZ7D2YNSBQTUOPKE",
+    "attestors": [
+      "GBQK5IGFFJUEMJJ6G4ZRU2N4ZBUUEV2OFYUQSEXLOI5NMV6FHJ6F7ZPC",
+      "GAXIC2DSICRV5WBIY24B6TBOOP6JXN3ZWOT5QQ2CIWQQCVVH7ADL6EA6"
+    ],
+    "witness": "GAVPDR3LVSJLKAO75FOLTRGVNQAOHOHVZUDKUPOE5IVWU2XRB4WIZZPJ"
+  },
+  "steps": [
+    {
+      "step": "deploy registry CBUEGKQJNSJI2FXEIEK6B3RK52MZLNZECDEQPOFER32Z5UCSMCSJRRRF",
+      "tx": [
+        "f1836fe39e87a2afdb02a10e8a78d4738ae75cba1f33af35175ed5ea491ad379",
+        "e5575a562259020d1bad2ed74282b9997ef2f65d202199f3b82fcf9c7ab921cf"
+      ],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/f1836fe39e87a2afdb02a10e8a78d4738ae75cba1f33af35175ed5ea491ad379",
+        "https://stellar.expert/explorer/testnet/tx/e5575a562259020d1bad2ed74282b9997ef2f65d202199f3b82fcf9c7ab921cf"
+      ]
+    },
+    {
+      "step": "register_asset ADEMO (unit USD, max age 35 days, tolerance 50 bps)",
+      "tx": ["40b73719f45e96319e265bc8647f55dbe49ff6036f3ace017fdca302ed371b5b"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/40b73719f45e96319e265bc8647f55dbe49ff6036f3ace017fdca302ed371b5b"
+      ]
+    },
+    {
+      "step": "add_attestor attestor A",
+      "tx": ["e5f2c73639c3bae007e2555a8f787cf441c5be09feffe444608683adea1ea1a2"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/e5f2c73639c3bae007e2555a8f787cf441c5be09feffe444608683adea1ea1a2"
+      ]
+    },
+    {
+      "step": "add_attestor attestor B",
+      "tx": ["53530b26a33e9c57aea427469a4d9de24d2ec63dc55967ab0ad394775172ebda"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/53530b26a33e9c57aea427469a4d9de24d2ec63dc55967ab0ad394775172ebda"
+      ]
+    },
+    {
+      "step": "set_supply_witness",
+      "tx": ["febc241e5c9c8dce473944fdf23b3bf947fd8c41a8380b2ce2c6158a4210a79d"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/febc241e5c9c8dce473944fdf23b3bf947fd8c41a8380b2ce2c6158a4210a79d"
+      ]
+    },
+    {
+      "step": "post_supply 1,000,000 ADEMO at ledger 5181119",
+      "tx": ["be6b3d5e36e8cf1709ee4e335a27a183f4683a560442d94bf4bd05134a3327da"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/be6b3d5e36e8cf1709ee4e335a27a183f4683a560442d94bf4bd05134a3327da"
+      ]
+    },
+    {
+      "step": "post_report attestor A (101.0%)",
+      "tx": ["4ae73fa4159b27313e2c9d3859e9e384b9a318e5e02d3ca0ea2e715b4c5166d1"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/4ae73fa4159b27313e2c9d3859e9e384b9a318e5e02d3ca0ea2e715b4c5166d1"
+      ]
+    },
+    {
+      "step": "post_report attestor B (99.5%)",
+      "tx": ["29e90be6970bf6df443be32d2edaf917b2aa4d9df1bd9d3fabf857644663715c"],
+      "urls": [
+        "https://stellar.expert/explorer/testnet/tx/29e90be6970bf6df443be32d2edaf917b2aa4d9df1bd9d3fabf857644663715c"
+      ]
+    }
+  ],
+  "status": {
+    "attestor_count": 2,
+    "coverage_bps": 9950,
+    "disagreement_bps": 150,
+    "newest_age_secs": 80,
+    "supply_age_secs": 20,
+    "supply_mismatch": false
+  },
+  "expected": {
+    "coverage_bps": 9950,
+    "attestor_count": 2,
+    "disagreement_bps": 150,
+    "supply_mismatch": false
+  },
+  "matches_expected": true
+}
