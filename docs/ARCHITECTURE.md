@@ -8,7 +8,7 @@ Repository: https://github.com/Garkuwa-Studio/assay · Licence: Apache-2.0
 > exists from what is planned. Switch a tag to Built only when there is a
 > linked contract ID, tx hash or live URL.
 > **[Built]** live and verifiable · **[Demo sprint]** built before
-> submission · **[SCF T1/T2/T3]** funded by that tranche.
+> submission · **[T1/T2/T3]** funded by that tranche.
 >
 > **Where things stand:** registry v0 and guard v0 run on testnet, with
 > contract IDs and transactions in [TESTNET.md](TESTNET.md) and
@@ -26,16 +26,16 @@ three ways:
 
 1. **Board** — a public website that checks every anchored asset on Stellar:
    is there a reserve report, how old is it, what does it say, and does it
-   cover the supply on the ledger? [Demo sprint → SCF T1]
+   cover the supply on the ledger? [Demo sprint → T1]
 2. **Registry** — a Soroban contract where independent attestors post
    signed reserve reports, so contracts can read the latest status.
-   [Demo sprint → SCF T1]
+   [Demo sprint → T2]
 3. **Guard** — circuit breakers that let lending markets and vaults stop
    new exposure to an asset when its backing is missing, stale or short.
-   [Demo sprint → SCF T2]
+   [Demo sprint → T2]
 
 Plus a **standard (SEP)** for machine-readable reserve reports, so every
-issuer publishes in the same format. [Demo sprint draft → SCF T1]
+issuer publishes in the same format. [Demo sprint draft → T2]
 
 ```mermaid
 flowchart LR
@@ -98,7 +98,7 @@ flowchart LR
 
 ## 4. Components
 
-### 4.1 assay-indexer (off-chain) [Demo sprint → SCF T1]
+### 4.1 assay-indexer (off-chain) [Demo sprint → T1]
 
 - **Asset census:** list every asset on Stellar mainnet with an issuer home
   domain; fetch each issuer's `stellar.toml`; read `is_asset_anchored`,
@@ -112,17 +112,25 @@ flowchart LR
   via Stellar RPC; recorded per ledger.
 - **Collateral addresses:** verify the signatures in
   `collateral_address_signatures` and read on-chain balances.
+- **Risk context [T1]:** the checks a lender asked for before accepting
+  RWA collateral: issuer account flags (`auth_required`, `auth_revocable`,
+  `auth_clawback_enabled`, `auth_immutable`) and signer thresholds; the
+  redemption path (the anchor's transfer server lists the asset for
+  withdrawal); exit liquidity (amount sellable within 2% and 5% of mid on
+  the Stellar DEX and AMM pools); and `collateral_address_signatures`
+  validity windows. Each read at a recorded ledger.
 - **Outputs:** versioned JSON API (`/v1/assets`, `/v1/assets/{code-issuer}`,
-  `/v1/history`), and supply snapshots posted on-chain as a "supply
-  witness" (see 4.2).
+  `/v1/summary`, `/v1/history`) refreshed at least daily [T1], board data
+  under CC BY 4.0, a public correction log, and supply snapshots posted
+  on-chain as a "supply witness" (see 4.2; on mainnet in T3).
 
-### 4.2 Reserve registry contract (Soroban) [Demo sprint → SCF T1]
+### 4.2 Reserve registry contract (Soroban) [Demo sprint → T2]
 
 **Roles**
 | Role | Who | Can do |
 |---|---|---|
 | Asset admin | The issuer (proved via a key listed in its stellar.toml) or Assay's admin until the issuer claims it | Register the asset, add/remove attestors (timelocked) |
-| Attestor | Auditor, custodian, issuer, oracle adapter | Post signed reserve reports for assets they're registered on |
+| Attestor | Auditor, custodian, issuer, oracle adapter; recorded as **independent** or **issuer** [T2] | Post signed reserve reports for assets they're registered on |
 | Supply witness | assay-indexer or any independent party | Post on-chain supply snapshots |
 | Anyone | — | Read status |
 
@@ -138,6 +146,7 @@ status(asset) -> {
   attestor_count,       // attestors with a report inside the max age
   disagreement_bps,     // spread between attestors' coverage figures
   supply_mismatch,      // stated liabilities below witnessed supply (beyond tolerance)
+  independent_count,    // [T2] fresh attestors recorded as independent
 }
 ```
 Using the minimum across attestors and the larger of stated liabilities or
@@ -152,7 +161,7 @@ liabilities. D0 verifies this assumption.
 **Storage:** reports in persistent storage with TTL extension on write;
 bounded history (last N reports per attestor) to keep rent predictable.
 
-### 4.3 Assay Guard [Demo sprint → SCF T2]
+### 4.3 Assay Guard [Demo sprint → T2]
 
 A small library and contract that protocols call before accepting more
 exposure to an asset:
@@ -161,22 +170,32 @@ exposure to an asset:
 is_healthy(asset, policy) -> (bool, reason)
 policy = { min_coverage_bps: 10000, max_age_secs: 35 days,
            min_attestors: 1, max_disagreement_bps: 500,
-           treat_missing_as: Unhealthy }
+           max_supply_mismatch_bps: 50 }
+// Missing or stale data is always unhealthy; there is no setting for it.
 ```
 
 Integration patterns:
 1. **Inline check** — a lending pool calls `is_healthy` in `borrow` /
    `supply` for RWA collateral and rejects with a readable reason.
-2. **Scoped keeper** — for protocols that can't change code, a keeper
+2. **Scoped keeper** (after launch) — for protocols that can't change code, a keeper
    watches the registry and calls the protocol's own admin action (e.g. set
    reserve status) using an OpenZeppelin smart-account policy that allows
    *only* that function on *only* that pool.
 3. **Off-chain alerts** — webhooks and a public RSS/JSON feed for risk teams.
 
+Reason codes [T2]: `UNKNOWN_ASSET`, `NO_REPORT`, `STALE`, `UNDERCOVERED`,
+`TOO_FEW_ATTESTORS`, `NO_INDEPENDENT_ATTESTOR`, `DISAGREEMENT`,
+`SUPPLY_MISMATCH`. It fails closed: an unknown asset, no report, a stale
+report, coverage below policy, issuer-only attestation when the policy needs
+an independent one, or a failed registry call all return false with a
+reason. Strict and lenient policy profiles come from the same contract, with
+an integration guide and test kit. (v0 on testnet has six reasons, from
+`NoReport` to `SupplyMismatch`; an unknown asset reads as `NoReport`.)
+
 The guard never moves funds and never unpauses automatically without the
 protocol's own rule allowing it.
 
-### 4.4 Reserve report standard (SEP draft) [Demo sprint draft → SCF T1]
+### 4.4 Reserve report standard (SEP draft) [Demo sprint draft → T2]
 
 Extends SEP-1: `attestation_of_reserve` may point to a JSON document:
 
@@ -197,7 +216,7 @@ Extends SEP-1: `attestation_of_reserve` may point to a JSON document:
 Backwards compatible: a plain PDF link still works; the board labels it
 "unstructured report".
 
-### 4.5 SDK and CLI [SCF T1]
+### 4.5 SDK and CLI [T2]
 
 - `assay-stellar` CLI (binary `assay`): `assay check <asset>`,
   `assay report sign <file>`, `assay report post <file>`,
@@ -244,9 +263,9 @@ sequenceDiagram
     participant REG as Registry
     U->>P: borrow against RWA token
     P->>G: is_healthy(asset, policy)
-    G->>REG: status(asset)
-    REG-->>G: coverage 92%, age 41 days
-    G-->>P: false, "coverage below 100%, report older than 35 days"
+    G->>REG: status_with(asset, max_age, tolerance)
+    REG-->>G: coverage 92%, newest report 41 days old
+    G-->>P: false, Stale (the first rule that failed)
     P-->>U: rejected with that reason
 ```
 
@@ -259,7 +278,7 @@ accountable, not honest); the issuer's stellar.toml and keys are not
 compromised; the supply witness is honest (anyone can run one; disagreement
 is visible).
 
-**Threat summary** (full STRIDE in SCF T2):
+**Threat summary** (full STRIDE in T2):
 
 | Threat | Example | Mitigation |
 |---|---|---|
@@ -294,12 +313,16 @@ units (e.g. MXN) need an FX assumption, stated explicitly.
 
 ## 9. Roadmap
 
-| Stage | Scope | Date |
+| Stage | Scope | Estimate |
 |---|---|---|
-| Demo sprint | Board v0 on mainnet data; registry v0 on testnet; guard demo; SEP draft | Oct 10 – Nov 13, 2026 |
-| SCF T1 — MVP | Board + indexer v1, registry v1, SEP + attestor tooling | Jan 4 – Feb 1, 2027 |
-| SCF T2 — Testnet | Guard, pilots (2 attestors + 1 protocol), oracle adapter, threat model | Feb 15 – Mar 1, 2027 |
-| SCF T3 — Mainnet | QA + audit, mainnet, first quarterly transparency report | Mar 29 – Apr 19, 2027 |
+| Demo sprint (before submission) | Board v0 on mainnet data; registry v0 on testnet; guard demo; SEP draft | 5 weeks |
+| T1 — MVP | Board, indexer and API v1 on mainnet data | 5 weeks |
+| T2 — Testnet | Registry, standard, guard, pilots, threat model | 6 weeks |
+| T3 — Mainnet | Audit, mainnet launch, go-live, transparency report | 6 weeks |
+
+After launch (coverage expansion): oracle adapters (RedStone, Chainlink), a
+scoped keeper for protocols that can't change their code, more attestors per
+asset, and quarterly "State of reserves on Stellar" reports.
 
 ## 10. Glossary
 

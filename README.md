@@ -32,19 +32,6 @@ provider and publishes facts with sources.
 
 ---
 
-## How it works
-
-| Component | What it does | Status |
-|---|---|---|
-| `assay-indexer` | Census of anchored assets, SEP-1 fields, report checks, supply | [Demo sprint] → [SCF T1] |
-| `assay-board` | Public board and docs | [Demo sprint] → [SCF T1] |
-| `contracts/registry` | Multi-attestor reserve reports; conservative status | v0 on testnet ([TESTNET.md](docs/TESTNET.md)) → [SCF T1] |
-| `contracts/guard` | `is_healthy(asset, policy)` circuit breaker | v0 on testnet ([DEMO-RUN.md](docs/DEMO-RUN.md)) → [SCF T2] |
-| `contracts/demo-pool` | TESTNET DEMO ONLY lending pool that calls the guard | Testnet demo |
-| `@garkuwa/assay-sdk` | Sign and verify reserve reports (SEP draft) | Built (signing); status lookups [SCF T1] |
-| `assay` CLI | Check status; sign and post reports | [SCF T1] |
-
-Full design: [Technical architecture](docs/ARCHITECTURE.md).
 
 ## Demo (testnet)
 
@@ -93,7 +80,7 @@ pnpm --filter @garkuwa/assay-scripts sign-report "$(realpath report.json)" --key
 ```
 
 The `assay` CLI (`assay check`, `assay report sign/post`) is planned for
-SCF T1.
+T2.
 
 ## Repository layout
 

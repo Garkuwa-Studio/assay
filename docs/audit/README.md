@@ -2,7 +2,7 @@
 
 Evidence for reviewers: what was deployed and run, what the scans found,
 and what was done about it. Nothing here is an external audit; that is
-planned for SCF T3 ([ARCHITECTURE.md §9](../ARCHITECTURE.md)).
+planned for T3 ([ARCHITECTURE.md §9](../ARCHITECTURE.md)).
 
 | Folder or file | What it holds | How it is produced |
 |---|---|---|
@@ -22,5 +22,5 @@ Human-readable versions: [TESTNET.md](../TESTNET.md) and
 
 ## Planned
 
-- Scout (CoinFabrik's Soroban analyzer) and a STRIDE threat model: SCF T2.
-- External audit of the registry and guard before mainnet: SCF T3.
+- Scout (CoinFabrik's Soroban analyzer) and a STRIDE threat model: T2.
+- External audit of the registry and guard before mainnet: T3.
